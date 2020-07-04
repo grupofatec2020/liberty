@@ -1,0 +1,186 @@
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background-color: #ff9a00;
+}
+::-webkit-scrollbar-button{
+    background-color: black;
+}
+::-webkit-scrollbar-thumb{
+    background-color: black;
+    border-radius: 40px;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+}
+
+/*  SIGN IN 
+div#totalPageLogin{
+    background-image: url('/public/img/Login/totalPageLogin.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+*/
+div#signINContainer{
+    margin-bottom: 600px;
+}
+div#titleLogin{
+    font-family: 'Anton', sans-serif;
+    margin-top: 160px;
+    text-align: left;
+}
+h1#Title0{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 4px;
+    color: #000000;
+    font-size: 100px;
+    text-shadow: 4px 4px 0px #ff9a00;
+}
+
+div#subtitleSocialR{
+    font-family: 'Anton', sans-serif;
+    margin-top: 40px;
+    text-align: center;
+    box-shadow: -5px 5px 1px #ff9a00
+}
+h3#SubT0{
+    color: black;
+    text-shadow: 0px 3px 1px #ff9a00;
+}
+
+div#formSgIn{
+    border: 2px solid white;
+    width: 570px;
+    height: 533px;
+    margin-top: 85px;
+    border-radius: 20px;
+    padding: 22px;
+}
+div#rowIconsA{
+    margin-top: 40px;
+}
+div#divFace{
+    text-align: center;
+}
+div#divLinkedin{
+    text-align: right;
+}
+img.iconConect{
+width: 50px;
+}
+img.iconConect:hover{
+    box-shadow: #ff9a00 0px 2px 1px;
+    transition: .4s;
+}
+
+div#divH1Login{
+    text-align: center;
+    margin-bottom: 40px;
+}
+h1#doItLogin{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 4px;
+    color: #000000;
+    font-size: 30px;
+    text-shadow: 4px 4px 0px #ff9a00;
+    box-shadow: #ff9a00 -2px -1px 0px;
+    padding-top: 15px;
+}
+
+
+label#lblUser{
+    box-shadow: -2px 0px 0px orange;
+    padding-left: 10px;
+    font-family: 'Anton', sans-serif;
+}
+input#sendPerfil{
+    background-image: url('/public/img/Login/iconPerf.png');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: right;
+
+}
+input#sendPerfil:hover{
+    box-shadow: #ff9a00 0px 0px 8px;
+}
+input#sendPerfil:active{
+    box-shadow: #ff9a00 0px 0px 8px;
+}
+label#lblPassword{
+    box-shadow: -2px 0px 0px orange;
+    padding-left: 10px;
+    font-family: 'Anton', sans-serif;
+}
+input#sendPass{
+    background-image: url('/public/img/Login/iconPass.png');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: right;
+}
+input#sendPass:hover{
+    box-shadow: #ff9a00 0px 0px 8px;
+}
+input#sendPass:active{
+    box-shadow: #ff9a00 0px 0px 8px;
+}
+
+div#btnEnterRow{
+    text-align: center;
+    margin-bottom: 20px;
+}
+button.btnLoginE{
+    color: white;
+    background-color: #ff9a00;
+    margin-top: 40px;
+    width: 250px;
+    font-size: 19px;
+    letter-spacing: 5px;
+}
+button.btnLoginE:hover{
+    background-color: transparent;
+    color: #ff9a00;
+    border: 2px solid #ff9a00;
+}
+
+/* SIGN UP */ 
+h3.idCadastro{
+    font-size: 18px;
+    color: #ff9a00;
+    text-align: center;
+}
+
+div#rowLinkSgUP{
+    margin-top: 10px;
+    text-align: center;
+}
+
+h1#startInLiberty{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 4px;
+    color: #000000;
+    font-size: 60px;
+    text-shadow: 4px 4px 0px #ff9a00;
+    text-align: center;
+}
+
+div#divFormSignUP{
+    box-shadow: 0px 0px 15px #ff9a00;
+    margin-bottom: 47px;
+    padding: 40px;
+    border-radius: 45px;
+}
+div#divBtnUp{
+    text-align: center;
+}
+button#SignUP{
+    border: 2px solid #ff9a00;
+    color: #ff9a00;
+}
+button#SignUP:hover{
+    background-color: #ff9a00;
+    color: white;
+}

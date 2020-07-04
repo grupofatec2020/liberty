@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probabilidade</title>
+    <link rel="stylesheet" href="/liberty.github.io/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/liberty.github.io/public/css/probabilidade-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Acme&family=Alfa+Slab+One&family=Cousine:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@1,800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/index.html"><img src="/liberty.github.io/public/img/navBar/navbar-logo .png"
+                alt="Responsive Image"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/liberty.github.io/views/estatistica-descritiva.html">Estatística Descritiva</a>
+                <a class="nav-item nav-link" href="/liberty.github.io/views/probabilidade.html">Probabilidade</a>
+                <a class="nav-item nav-link" href="/liberty.github.io/views/correlacao-regressao.html">Correlação e Regressão</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1>PROBABILIDADE</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <p>Escolha o tipo de distribuição desejada e faça os calculos.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <section>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Binomial</h2>
+                        </div>
+                    </div>
+                    <div>
+                        <br>
+                        <label>Amostra</label>
+                        <input type="text" id="amostra" name="amostra" placeholder="Digite os dados da amostra (N)"
+                            size="30">
+                        </br>
+                        <br>
+                        <label>Sucesso</label>
+                        <input type="text" id="sucesso" name="sucesso" placeholder="Digite a chance de sucesso (P)"
+                            size="30">
+                        </br>
+                        <br>
+                        <label>Fracasso</label>
+                        <input type="text" id="fracasso" name="fracasso" placeholder="Digite a chance de fracasso (Q)"
+                            size="30">
+                        </br>
+                        <br>
+                        <label>Evento</label>
+                        <input type="text" id="evento" name="evento" placeholder="Digite os eventos (K)" size="30">
+                        </br>
+                        <br>
+                        <button class="btn calculaBtn" id="Calcular" onclick="DistribuicaoBinomial()">Calcular</button>
+                        </br>
+                        <br>
+                        <div id="texto_probabilidade_binomial]"></div>
+                        <div id="texto_media-binomial"></div>
+                        <div id="texto_coeficiente_variancia"></div>
+                        </br>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <section>
+                    <div class="col-12">
+                        <h2>Normal</h2>
+                    </div>
+                    <div>
+                        <br>
+                        <label>Media</label>
+                        <input type="text" id="media" name="media" placeholder="Digite o valor da media" size="30">
+                        </br>
+                        <br>
+                        <label>Desvio Padrão</label>
+                        <input type="text" id="desvio_padrao" name="desvio_padrao"
+                            placeholder="Digite o valor do desvio padrao" size="30">
+                        </br>
+                        <br>
+                        <label>Intervalo</label>
+                        <select name="intervalo" id="intervalo_normal">
+                            <option value="maior" selected>Maior que</option>
+                            <option value="menor">Menor que</option>
+                            <option value="entre">Entre dois numeros</option>
+                        </select>
+                        </br>
+                        <br>
+                        <label>Valor do Intervalo</label>
+                        <input type="text" id="valor_intervalo_normal" name="valor_intervalo"
+                            placeholder="Digite o valor do Intervalo" size="30">
+                        </br>
+                        <br>
+                        <button class="btn calculaBtn" id="calcular" onclick="escoreZ()">Calcular</button>
+                        </br>
+                        <br>
+                        <div id="texto_probabilidade_normal"></div>
+                        </br>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <section>
+                    <div class="col-12">
+                        <h2>Uniforme</h2>
+                    </div>
+                    <div>
+                        <br>
+                        <label>Valor Minimo</label>
+                        <input type="text" id="inicial" name="inicial" placeholder="Digite o valor inicial" size="30">
+                        </br>
+                        <br>
+                        <label>Valor Maximo</label>
+                        <input type="text" id="final" name="final" placeholder="Digite o valor final" size="30">
+                        </br>
+                        <br>
+                        <label>Intervalo</label>
+                        <select name="intervalo" id="intervalo_uniforme">
+                            <option value="maior" selected>Mais que</option>
+                            <option value="menor">Menos que</option>
+                            <option value="entre">Entre dois numeros</option>
+                        </select>
+                        </br>
+                        <br>
+                        <label>Valor do Intervalo</label>
+                        <input type="text" id="valor_intervalo_uniforme" name="valor_intervalo"
+                            placeholder="Digite o valor do Intervalo" size="30">
+                        </br>
+                        <br>
+                        <button class="btn calculaBtn" id="calcular" onclick="calcular()">Calcular</button>
+                        </br>
+                        <br>
+                        <div id="texto_media"></div>
+                        <div id="texto_dp"></div>
+                        <div id="texto_variancia"></div>
+                        <div id="texto_probabilidade_uniforme"></div>
+                        </br>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="/liberty.github.io/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/jquery/jquery-3.2.1.min.js"></script>
+    <script src='/liberty.github.io/public/js/distribuicao-normal.js'></script>
+    <script src='/liberty.github.io/public/js/distribuicao-uniforme.js'></script>
+    <script src='/liberty.github.io/public/js/probabilidade.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+</body>
+
+</html>

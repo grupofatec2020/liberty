@@ -1,0 +1,271 @@
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background-color: #ff9a00;
+}
+::-webkit-scrollbar-button{
+    background-color: #000000c4;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #000000c4;
+    border-radius: 40px;
+}
+
+/* Nav */
+a.nav-link:hover{
+    box-shadow: 0px 1px 0px #ff9a00;
+    transition: .8s;
+}
+
+/* Home */
+
+div#startContainer{
+    background-image: url('/public/img/backGrounds/startBackground2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 1640px;
+    height: 700px;
+    margin-top: 160px;
+}
+
+div#boxTituloPrincial{
+    margin-top: 185px;
+}
+
+h1#tituloPrincipal {
+    margin-top: 120px;
+    margin-bottom: 120px;
+    text-align: center;
+    color: white;
+    text-shadow: 4px 5px 9px black;
+    font-size: 45px;
+    font-family: 'Alfa Slab One', cursive;
+}
+
+div#botaoComecar{
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'Cousine', monospace;
+}
+
+a#comecarAgorabtn{
+    font-size: 20px;
+    background-color: #ff9a00;
+    color: black;
+    box-shadow: 0px 8px 10px black;
+}
+a#comecarAgorabtn:hover{
+    background-color: transparent;
+    border: 2px solid #ff9a00;
+    color: #ff9a00;
+    margin-top: -5px;
+    text-decoration: uppercase;
+}
+/* How Works */
+
+h1#tituloComoFunciona{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 4px;
+    margin-top: 120px;
+    color: #3c3c3c;
+    font-size: 70px;
+    text-shadow: -4px 4px 14px #925800;
+}
+
+div#explicaHowWorks{
+    margin-top: 120px;
+}
+h3#h3HowWorks{
+   font-size: 22px;
+   background-color: #ff9a00;
+   font-family: 'Alegreya SC', serif;
+   padding: 4px;
+}
+p#pHowWorks{
+    font-size: 15px;
+    margin-top: -20px;
+    font-family: 'Alegreya SC', serif;
+}
+
+div#rowImgHowWorks{
+    margin-top: 90px;
+}
+img.shadowImg{
+    box-shadow: black 5px 5px 20px;
+    margin-bottom: 40px;
+}
+
+/* Tables */
+h2.titleTables{
+    font-size: 20px;
+    text-align: center;
+}
+h2#ED{
+    background-color: #ff9a00;
+    color: black;
+}
+h2#PB{
+    background-color: black;
+    color: #ff9a00;
+}
+h2#CR{
+    background-color: #ff9a00;
+    color: black;
+}
+p.subtitleTables{
+    font-size: 16px;
+}
+div#RowBtn-gerarTabelas{
+    text-align: center;
+}
+button.btn-gerarTables{
+    background-color: #ff9a00;
+    color: black;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 18px;
+}
+button.btn-gerarTables:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #ff9a00;
+    color: #ff9a00;
+}
+button.btn-gerarTables:active{
+    margin-top: -4px;
+}
+
+/* QUEM SOMOS */
+div#rowWho{
+    margin-top: 80px;
+}
+div#rowModelP{
+    margin-bottom: 60px;
+}
+div#explicaWho{
+    margin-top: 120px;
+}
+div.rowModalDiv{
+    text-align: center;
+}
+
+button.btnModelP{
+    width: 230px;
+    border: 2px solid black;
+    background-color: black;
+    color: #ffffff;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 24px;
+    padding: 5px;
+}
+button.btnModelP:hover{
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+}
+
+
+h1#tituloWho{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 4px;
+    margin-top: 120px;
+    color: #3c3c3c;
+    font-size: 100px;
+    text-shadow: 4px 4px 14px #925800;
+}
+h3#h3who{
+    font-size: 22px;
+    background-color: #ff9a00;
+    font-family: 'Alegreya SC', serif;
+    padding: 4px;
+}
+p#pwho{
+    font-size: 18px;
+    margin-top: -20px;
+    font-family: 'Alegreya SC', serif;
+}
+
+div#rowImgWho{
+    margin-top: 150px;
+}
+img.whoIs{
+    margin-bottom: 40px;
+}
+img.whoIs:hover{
+    cursor: pointer;
+}
+/* RODAPÉ */
+div#container-rodape{
+    background-color: #000000c4;
+    height: 400px;
+}
+
+div.linhaWhatForm{
+    margin-top: 140px;
+}
+
+h1#titFooter{
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 4px;
+    margin-top: 10px;
+    color: yellow;
+    font-size: 40px;
+    text-shadow: 4px 4px 14px #6a2d71;
+}
+div.rowBtnEnviaForm{
+    text-align: center;
+}
+label#titForm{
+    color: white;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 18px;
+}
+button.btn-enviaForm{
+    background-color: #ff9a00;
+    color: #000000c4;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 18px;
+    width: 160px;
+    height: 40px;
+    margin-bottom: 20px;
+    padding: 0px;
+}
+button.btn-enviaForm:hover{
+    border: 2px solid #ff9a00;
+    color: #ff9a00;
+    background-color: transparent;
+}
+/* Contato */
+
+div#container-contato{
+    background-color: #ff9a00;
+    height: 32px;
+}
+
+img.imgFooter{
+    height: 32px;
+}
+
+p#copy{
+    font-family: 'Aclonica', sans-serif;
+    text-decoration: underline;
+    font-size: 14px;
+}
+div#imageE{
+    text-align: left;
+    margin-left: -20px;
+}
+div#cntsE{
+    margin-top: 12px;
+    text-align: center;
+}
+div#icons{
+    text-align: right;
+    margin-top: 4px;
+}
+
+img.imgIconsContato{
+    height: 22px;
+}
+

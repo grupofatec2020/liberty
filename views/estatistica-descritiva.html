@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatistica descritiva</title>
+    <link rel="stylesheet" href="/liberty.github.io/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/liberty.github.io/public/css/estatisticD-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Acme&family=Alfa+Slab+One&family=Cousine:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@1,800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/index.html"><img src="/public/img/navBar/navbar-logo .png"
+                alt="Responsive Image"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/liberty.github.io/views/estatistica-descritiva.html">Estatística Descritiva</a>
+                <a class="nav-item nav-link" href="/liberty.github.io/views/probabilidade.html">Probabilidade</a>
+                <a class="nav-item nav-link" href="/liberty.github.io/views/correlacao-regressao.html">Correlação e Regressão</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid" id="ctnFluidStart">
+        <div class="row">
+            <div class="col-12">
+                <h1>Estatistica Descritiva</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h3>Faça upload de arquivos ou insira os dados manualmente.</h3>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <button class="btn btnChoice">Importar dados</button>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <button class="btn btnChoice">Inserir dados</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- nome_variavel é melhor até pra entender depois -->
+    <!-- eu nao lembrava que podia usar _-->
+    <input type="text" id="nome_variavel" name="nome_variavel" placeholder="Digite a variavel, separando com ;">
+    <br>
+    <input type="text" id="dados_variavel" name="dados_variavel"
+        placeholder="Digite os dados da variavel, separando com ;">
+    <select name="tipo_desvio" id="tipo_desvio">
+        <option value="amostra">Amostra</option>
+        <option value="populacao">População</option>
+    </select>
+    <button id="tab_discreta" onclick="criarTabelaDiscreta()">Quantitativa Discreta</button>
+    <button id="tab_nom" onclick="criarTabelaNom()">Qualitativa Nominal</button>
+    <button id="calcular" onclick="gerarGraficoDiscreta()">Graficos Quantitativa Discreta</button>
+    <button id="calcular" onclick="gerarGraficoQualitativa()">Graficos Qualitativa Nominal/Ordinal</button>
+    <button id="tab_continua" onclick="criarTabelaContinua()">Criar Tabela Continua</button>
+    <button id="graf_continua" onclick="graficoContinua()">Graficos Quantitativa Continua</button>
+
+    <div>
+        <br>
+        <label id="nome_tabela"></label>
+    </div>
+    <br>
+
+    <table border="2" id="discreta_nominal_ordinal">
+        <thead>
+            <tr>
+                <th>Variavel</th>
+                <th>FI</th>
+                <th>FR%</th>
+                <th>FAC</th>
+                <th>FAC%</th>
+            </tr>
+        </thead>
+        <!-- <tbody id="tabelabody"> -->
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Variavel</th>
+                <th>FI</th>
+                <th>FR%</th>
+                <th>FAC</th>
+                <th>FAC%</th>
+                <th>XI</th>
+            </tr>
+        </thead>
+        <!-- <tbody id="tabelabody"> -->
+        <tbody id="tbody_continua">
+
+        </tbody>
+    </table>
+    <div>
+        <br>
+        <div id="texto_media"></div>
+        <div id="texto_moda"></div>
+        <div id="texto_mediana"></div>
+        <div id="texto_desvio_padrao"></div>
+        <div id="texto_coeficiente_variacao"></div>
+    </div>
+    <div style="top:60px; left:10px; width:500px; height:500px;">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="/liberty.github.io/public/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="/public/js/jquery/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src='/liberty.github.io/public/js/script.js'></script>
+</body>
+
+</html>

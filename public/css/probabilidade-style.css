@@ -1,0 +1,64 @@
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background-color: #ff9a00;
+}
+::-webkit-scrollbar-button{
+    background-color: #000000c4;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #000000c4;
+    border-radius: 40px;
+}
+
+/* Nav */
+a.nav-link:hover{
+    box-shadow: 0px 1px 0px #ff9a00;
+    transition: .8s;
+}
+
+.container-fluid{
+    margin-top: 130px;
+    text-align: center;
+}
+
+h1{
+    color: #ff9a00;
+    font-family: 'Aclonica', sans-serif;
+}
+
+h2{
+    color: #ff9a00;
+    font-family: 'Aclonica', sans-serif;
+}
+
+label{
+font-family: 'Aclonica', sans-serif;
+}
+
+p{
+    font-family: 'Aclonica', sans-serif;
+}
+
+section{
+    box-shadow: black 0px 0px 10px;
+    padding: 18px;
+}
+
+button.calculaBtn{
+    background-color: #ff9a00;
+    color: white;
+    cursor: pointer;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 18px;
+}
+button.calculaBtn:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #ff9a00;
+    color: #ff9a00;
+}
+button.calculaBtn:active{
+    margin-top: -4px;
+}
