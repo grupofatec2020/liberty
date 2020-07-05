@@ -18,27 +18,36 @@ a.nav-link:hover{
     transition: .8s;
 }
 
-div#ctnFluidStart{
-    margin-top: 192px;
+div#paginaTotal{
+    margin-top: 180px;
 }
 
 h1{
+    text-align: center;
     color: #ff9a00;
     font-family: 'Aclonica', sans-serif;
 }
 
-button.btnChoice{
-    background-color: #ff9a00;
-    color: black;
+h3{
+    text-align: center;
     font-family: 'Aclonica', sans-serif;
-    font-size: 18px;
 }
-button.btnChoice:hover{
-    cursor: pointer;
-    background-color: transparent;
-    border: 2px solid #ff9a00;
+
+p{
     color: #ff9a00;
+    text-align: center;
+    font-family: 'Aclonica', sans-serif;
 }
-button.btnChoice:active{
-    margin-top: -4px;
+
+label{
+    font-family: 'Aclonica', sans-serif;
+    }
+
+div#rowEscolha{
+    text-align: center;
+}
+
+
+option:hover{
+    background-color: #ff9a00;
 }

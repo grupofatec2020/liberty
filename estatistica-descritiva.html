@@ -1,104 +1,175 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Estatisca Descritiva</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatistica descritiva</title>
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/ed-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Acme&family=Alfa+Slab+One&family=Cousine:ital,wght@1,700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Audiowide&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aclonica&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:ital,wght@1,800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid" id="paginaTotal">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img src="/public/img/navBar/navbar-logo .png"
+                    alt="Responsive Image"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="estatistica-descritiva.html">Estatística Descritiva</a>
+                    <a class="nav-item nav-link" href="probabilidade.html">Probabilidade</a>
+                    <a class="nav-item nav-link" href="correlacao-regressao.html">Correlação e Regressão</a>
+                </div>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-12">
+                <h1>Estatistica Descritiva</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h3>Importe os dados, ou os insira manualmente</h3>
+            </div>
+        </div>
+        <!-- nome_variavel é melhor até pra entender depois -->
+        <!-- eu nao lembrava que podia usar _-->
+        <br>
+        <p>Selecione o tipo de tabela desejada:</p>
+        <div class="row">
+            <div class="col-12" id="rowEscolha">
+                <select id="tipo_tabela" onchange="inserirDados()">
+                    <option value="" selected>Selecione uma opção</option>
+                    <option value="nominal">Qualitativa Nominal</option>
+                    <option value="ordinal">Qualitativa Ordinal</option>
+                    <option value="discreta">Quantitativa Discreta</option>
+                    <option value="continua">Quantitativa Continua</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="nome_variavel" id="label_nome" style="display:none">Nome da variável:</label>
+                <input type="text" id="nome_variavel" name="nome_variavel"
+                    placeholder="Digite a variavel, separando com ;" style="display:none">
+                <br>
+                <label for="dados_variavel" id="label_dados" style="display:none">Informe os valores:</label>
+                <input type="text" id="dados_variavel" name="dados_variavel"
+                    placeholder="Digite os dados da variavel, separando com ;" style="display:none">
+                <select name="tipo_desvio" id="tipo_desvio" style="display:none">
+                    <option value="amostra">Amostra</option>
+                    <option value="populacao">População</option>
+                </select>
+                <br>
+                <label for="ordem_valores" id="nome_ordem" style="display:none">Qual a ordem desejada:</label>
+                <input type="text" id="ordem_valores" name="ordem_valores"
+                    placeholder="Ordem dos valores separados por ;" style="display:none">
+                <button id="calcular" onclick="calcular()" style="display: none">Calcular</button>
+                <div>
+                    <br>
+                    <label id="nome_tabela"></label>
+                </div>
+                <br>
+                <div id="div_tabela_discreta_nominal_ordinal" style="display:none">
+                    <table border="2">
+                        <thead>
+                            <tr>
+                                <th>Variavel</th>
+                                <th>FI</th>
+                                <th>FR%</th>
+                                <th>FAC</th>
+                                <th>FAC%</th>
+                            </tr>
+                        </thead>
+                        <tbody id="discreta_nominal_ordinal">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div id="div_tabela_continua" style="display:none">
+                    <table border="2">
+                        <thead>
+                            <tr>
+                                <th>Variavel</th>
+                                <th>FI</th>
+                                <th>FR%</th>
+                                <th>FAC</th>
+                                <th>FAC%</th>
+                                <th>XI</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabela_continua">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <br>
+                    <div id="texto_media"></div>
+                    <div id="texto_moda"></div>
+                    <div id="texto_mediana"></div>
+                    <div id="texto_desvio_padrao"></div>
+                    <div id="texto_coeficiente_variacao"></div>
+                </div>
+                <div style="top:60px; left:10px; width:600px; height:300px;" id="container_grafico">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <div>
+                    <select name="tipo_separatriz" id="tipo_separatriz" style="display:none"
+                        onchange="mostrarOpcaoSeparatriz()">
+                        <option value="" selected>Selecione uma opção</option>
+                        <option value="quartil">Quartil</option>
+                        <option value="quintil">Quintil</option>
+                        <option value="decil">Decil</option>
+                        <option value="percentil">Percentil</option>
+                    </select>
+                    <button id="calcular_separatriz" name="calculcar_separatriz" onclick="calcularSeparatriz()">Calcular
+                        separatriz</button>
+
+                    <input name="valor_separatriz" id="valor_separatriz" placeholder="" style="display:none" size="50">
+                    <input name="valor_separatriz_calculado" id="valor_separatriz_calculado" style="display:none"
+                        size="50">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-12">
+                        <input type="file" name="upload-csv" id="arquivo" style="display: none;">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <button id="btn-upload-csv" onclick="lerCSV()" style="display: none">Carregar CSV</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="/liberty.github.io/public/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://unpkg.com/papaparse@latest/papaparse.min.js"></script>
     <script src='script.js'></script>
-
-</head>
-<body>
-    <!-- nome_variavel é melhor até pra entender depois -->
-    <!-- eu nao lembrava que podia usar _-->
-    <br>
-    <p>Selecione o tipo de tabela desejada:</p>
-    <select id="tipo_tabela" onchange="inserirDados()">
-        <option value="" selected>Selecione uma opção</option>
-        <option value="nominal">Qualitativa Nominal</option>
-        <option value="ordinal">Qualitativa Ordinal</option>
-        <option value="discreta">Quantitativa Discreta</option>
-        <option value="continua">Quantitativa Continua</option>
-    </select>
-    <input type="file" name="upload-csv" id="arquivo" style="display: none;">
-    <button id="btn-upload-csv" onclick="lerCSV()" style="display: none">Carregar CSV</button> <br>
-    <label for="nome_variavel" id="label_nome" style="display:none">Nome da variável:</label>
-    <input type="text" id="nome_variavel" name="nome_variavel" placeholder="Digite a variavel, separando com ;" style="display:none"> 
-    <br>
-    <label for="dados_variavel" id="label_dados" style="display:none">Informe os valores:</label>
-    <input type="text" id="dados_variavel" size="200" name="dados_variavel" placeholder="Digite os dados da variavel, separando com ;" style="display:none">
-    <select name="tipo_desvio" id="tipo_desvio" style="display:none">
-        <option value="amostra">Amostra</option>
-        <option value="populacao">População</option>
-    </select>
-    <br>
-    <label for="ordem_valores" id="nome_ordem" style="display:none">Qual a ordem desejada:</label>
-    <input type="text" size="100" id="ordem_valores" name="ordem_valores" placeholder="Ordem dos valores separados por ;" style="display:none"> 
-    <button id="calcular" onclick="calcular()" style="display: none">Calcular</button>
-    <div>
-        <br>
-        <label id="nome_tabela"></label>
-    </div>
-    <br>
-
-    <div id="div_tabela_discreta_nominal_ordinal" style="display:none">
-        <table border ="2">
-            <thead>
-                <tr>
-                    <th>Variavel</th>
-                    <th>FI</th>
-                    <th>FR%</th>
-                    <th>FAC</th>
-                    <th>FAC%</th>
-                </tr>
-            </thead>
-            <tbody id="discreta_nominal_ordinal">
-
-            </tbody>
-        </table>
-    </div>
-    <div id="div_tabela_continua" style="display:none">
-        <table border ="2">
-            <thead>
-                <tr>
-                    <th>Variavel</th>
-                    <th>FI</th>
-                    <th>FR%</th>
-                    <th>FAC</th>
-                    <th>FAC%</th>
-                    <th>XI</th>
-                </tr>
-            </thead>
-            <tbody id="tabela_continua">
-
-            </tbody>
-        </table>
-    </div>
-    <div>
-        <br>
-        <div id="texto_media"></div>
-        <div id="texto_moda"></div>
-        <div id="texto_mediana"></div>
-        <div id="texto_desvio_padrao"></div>
-        <div id="texto_coeficiente_variacao"></div>
-    </div>
-    <div style="top:60px; left:10px; width:600px; height:300px;" id="container_grafico">
-        <canvas id="myChart"></canvas>
-    </div>
-    <div>
-    <select name="tipo_separatriz" id="tipo_separatriz" style="display:none" onchange="mostrarOpcaoSeparatriz()">
-        <option value="" selected>Selecione uma opção</option>
-        <option value="quartil">Quartil</option>
-        <option value="quintil">Quintil</option>
-        <option value="decil">Decil</option>
-        <option value="percentil">Percentil</option>
-    </select>
-    <button id="calcular_separatriz" name="calculcar_separatriz" onclick="calcularSeparatriz()">Calcular separatriz</button>
-
-    <input name="valor_separatriz" id="valor_separatriz" placeholder="" style="display:none" size="50">
-    <input name="valor_separatriz_calculado" id="valor_separatriz_calculado"  style="display:none" size="50">
-</div>
 </body>
+
 </html>
