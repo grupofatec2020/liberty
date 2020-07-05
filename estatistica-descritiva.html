@@ -59,7 +59,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6" id="manualLado">
                 <label for="nome_variavel" id="label_nome" style="display:none">Nome da variável:</label>
                 <input type="text" id="nome_variavel" name="nome_variavel"
                     placeholder="Digite a variavel, separando com ;" style="display:none">
@@ -75,7 +75,11 @@
                 <label for="ordem_valores" id="nome_ordem" style="display:none">Qual a ordem desejada:</label>
                 <input type="text" id="ordem_valores" name="ordem_valores"
                     placeholder="Ordem dos valores separados por ;" style="display:none">
-                <button id="calcular" onclick="calcular()" style="display: none">Calcular</button>
+                <div class="row">
+                    <div class="col-12">
+                        <button class="btn" id="calcular" onclick="calcular()" style="display: none">Calcular</button>
+                    </div>
+                </div>
                 <div>
                     <br>
                     <label id="nome_tabela"></label>
@@ -134,10 +138,11 @@
                         <option value="decil">Decil</option>
                         <option value="percentil">Percentil</option>
                     </select>
+                    <input name="valor_separatriz" id="valor_separatriz" placeholder="" style="display:none" size="50">
                     <button id="calcular_separatriz" name="calculcar_separatriz" onclick="calcularSeparatriz()">Calcular
                         separatriz</button>
 
-                    <input name="valor_separatriz" id="valor_separatriz" placeholder="" style="display:none" size="50">
+
                     <input name="valor_separatriz_calculado" id="valor_separatriz_calculado" style="display:none"
                         size="50">
                 </div>

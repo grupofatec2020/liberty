@@ -45,7 +45,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12" id="botaoComecar">
-                        <a id="comecarAgorabtn" class="btn btn-outline btn-start" href="#">Comece Agora</a>
+                        <a id="comecarAgorabtn" class="btn btn-outline btn-start" href="login.html">Comece Agora</a>
                     </div>
                 </div>
             </div>
@@ -375,20 +375,8 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
     integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
     crossorigin="anonymous"></script>
-    <script src="public/js/bootstrap.min.js"></script>
-    <script src="public/js/jquery/jquery-3.2.1.min.js"></script>
-    <script>
-        $('nav a').click(function (e) {
-            e.preventDefault()
-            var id = $(this).attr('href'),
-            targetOffset = $(id).offset().top,
-            menuHeight = $('nav').innerHeight()
-        
-            $('html, body').animate({
-            scrollTop: targetOffset - menuHeight
-            }, 500)
-        })
-  
-    </script>
+<script src="public/js/bootstrap.min.js"></script>
+<script src="public/js/jquery/jquery-3.2.1.min.js"></script>
+
 
 </html>

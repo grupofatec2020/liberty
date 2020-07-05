@@ -41,13 +41,86 @@ p{
 
 label{
     font-family: 'Aclonica', sans-serif;
-    }
+}
+
+div#manualLado{
+    text-align: center;
+    box-shadow: 8px -8px 0px orange;
+    border-radius: 90px;
+    padding: 28px;
+}
 
 div#rowEscolha{
     text-align: center;
+    margin-bottom: 80px;
 }
 
 
-option:hover{
+
+input#nome_variavel{
+    width: 260px;
+    margin-left: 200px;
+}
+
+input#dados_variavel{
+    width: 330px;
+    margin-left: 165px;
+}
+
+input#ordem_valores{
+    width: 260px;
+    margin-left: 200px;
+}
+
+button#calcular{
     background-color: #ff9a00;
+    color: white;
+    cursor: pointer;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 14px;
+    margin-left: 280px;
+}
+button#calcular:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #ff9a00;
+    color: #ff9a00;
+}
+button#calcular:active{
+    margin-top: -4px;
+}
+
+button#btn-upload-csv{
+    background-color: #ff9a00;
+    color: white;
+    cursor: pointer;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 14px;
+    margin-left: 280px;
+}
+button#btn-upload-csv:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #ff9a00;
+    color: #ff9a00;
+}
+button#btn-upload-csv:active{
+    margin-top: -4px;
+}
+
+button#calcular_separatriz{
+    background-color: #ff9a00;
+    color: white;
+    cursor: pointer;
+    font-family: 'Aclonica', sans-serif;
+    font-size: 14px;
+}
+button#calcular_separatriz:hover{
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #ff9a00;
+    color: #ff9a00;
+}
+button#calcular_separatriz:active{
+    margin-top: -4px;
 }
