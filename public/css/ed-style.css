@@ -55,7 +55,15 @@ div#rowEscolha{
     margin-bottom: 80px;
 }
 
-
+div#div_tabela_discreta_nominal_ordinal{
+    margin-left: 160px;
+}
+div#div_tabela_continua{
+    margin-left: 160px;
+}
+div#discreta_nominal_ordinal{
+    margin-left: 160px;
+}
 
 input#nome_variavel{
     width: 260px;
