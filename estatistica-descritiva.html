@@ -19,8 +19,7 @@
 <body>
     <div class="container-fluid" id="paginaTotal">
         <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="index.html"><img src="public/img/navBar/navbar-logo .png"
-                    alt="Responsive Image"></a>
+            <a class="navbar-brand" href="index.html"><img src="public/img/navBar/navbar-logo.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -43,13 +42,11 @@
                 <h3>Importe os dados, ou os insira manualmente</h3>
             </div>
         </div>
-        <!-- nome_variavel é melhor até pra entender depois -->
-        <!-- eu nao lembrava que podia usar _-->
         <br>
-        <p>Selecione o tipo de tabela desejada:</p>
         <div class="row">
-            <div class="col-12" id="rowEscolha">
-                <select id="tipo_tabela" onchange="inserirDados()">
+            <p>Selecione o tipo de tabela desejada:</p>
+            <div class="col-4 text-center" id="rowEscolha">
+                <select id="tipo_tabela" onchange="inserirDados()" class="form-control">
                     <option value="" selected>Selecione uma opção</option>
                     <option value="nominal">Qualitativa Nominal</option>
                     <option value="ordinal">Qualitativa Ordinal</option>
@@ -61,19 +58,19 @@
         <div class="row">
             <div class="col-md-6" id="manualLado">
                 <label for="nome_variavel" id="label_nome" style="display:none">Nome da variável:</label>
-                <input type="text" id="nome_variavel" name="nome_variavel"
+                <input type="text" id="nome_variavel" class="form-control" name="nome_variavel"
                     placeholder="Digite a variavel, separando com ;" style="display:none">
                 <br>
                 <label for="dados_variavel" id="label_dados" style="display:none">Informe os valores:</label>
-                <input type="text" id="dados_variavel" name="dados_variavel"
+                <input type="text" id="dados_variavel" class="form-control" name="dados_variavel"
                     placeholder="Digite os dados da variavel, separando com ;" style="display:none">
-                <select name="tipo_desvio" id="tipo_desvio" style="display:none">
+                <select name="tipo_desvio" id="tipo_desvio" class="form-control" style="display:none">
                     <option value="amostra">Amostra</option>
                     <option value="populacao">População</option>
                 </select>
                 <br>
                 <label for="ordem_valores" id="nome_ordem" style="display:none">Qual a ordem desejada:</label>
-                <input type="text" id="ordem_valores" name="ordem_valores"
+                <input type="text" id="ordem_valores" class="form-control" name="ordem_valores"
                     placeholder="Ordem dos valores separados por ;" style="display:none">
                 <div class="row">
                     <div class="col-12">
@@ -86,7 +83,7 @@
                 </div>
                 <br>
                 <div id="div_tabela_discreta_nominal_ordinal" style="display:none">
-                    <table border="2">
+                    <table class="table" border="2">
                         <thead>
                             <tr>
                                 <th>Variavel</th>
@@ -102,7 +99,7 @@
                     </table>
                 </div>
                 <div id="div_tabela_continua" style="display:none">
-                    <table border="2">
+                    <table class="table" border="2">
                         <thead>
                             <tr>
                                 <th>Variavel</th>
@@ -126,25 +123,22 @@
                     <div id="texto_desvio_padrao"></div>
                     <div id="texto_coeficiente_variacao"></div>
                 </div>
-                <div style="top:60px; left:10px; width:600px; height:300px;" id="container_grafico">
+                <div style="width:600px; height:300px;" id="container_grafico">
                     <canvas id="myChart"></canvas>
                 </div>
-                <div>
-                    <select name="tipo_separatriz" id="tipo_separatriz" style="display:none"
-                        onchange="mostrarOpcaoSeparatriz()">
-                        <option value="" selected>Selecione uma opção</option>
+                <hr>
+                <div id="div_separatriz" style="display:none">
+                    <select name="tipo_separatriz" class="form-control" id="tipo_separatriz" onchange="mostrarOpcaoSeparatriz()">
+                        <option value="" selected>Selecione um tipo de separatriz para cálculo</option>
                         <option value="quartil">Quartil</option>
                         <option value="quintil">Quintil</option>
                         <option value="decil">Decil</option>
                         <option value="percentil">Percentil</option>
                     </select>
-                    <input name="valor_separatriz" id="valor_separatriz" placeholder="" style="display:none" size="50">
+                    <input name="valor_separatriz" class="form-control" id="valor_separatriz" placeholder="" style="display:none" size="50">
                     <button id="calcular_separatriz" name="calculcar_separatriz" onclick="calcularSeparatriz()">Calcular
                         separatriz</button>
-
-
-                    <input name="valor_separatriz_calculado" id="valor_separatriz_calculado" style="display:none"
-                        size="50">
+                    <div name="valor_separatriz_calculado" id="valor_separatriz_calculado" style="display:none"></div>
                 </div>
             </div>
             <div class="col-md-6">

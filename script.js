@@ -51,8 +51,8 @@ function inserirDados() {
 }
 
 function mostrarSelectSeparatrizes(mostrar = true) {
-  let tipo_separatriz = document.getElementById("tipo_separatriz")
-  tipo_separatriz.style.display = mostrar ? 'block' : 'none';
+  let div_separatriz = document.getElementById("div_separatriz")
+  div_separatriz.style.display = mostrar ? 'block' : 'none';
 }
 
 // Após selecionar o tipo de separatriz mostrar as opções de cálculo
@@ -386,7 +386,7 @@ function criarTabelaDiscreta() {
   //   console.log(soma_total);
   array_valores.forEach((e) => {
     let linha = document.createElement("tr");
-    let campoDados = document.createElement("tr");
+    let campoDados = document.createElement("td");
     let campo_fr_porcento = document.createElement("td");
     let campo_fa = document.createElement("td");
     let campo_fa_porcento = document.createElement("td");
@@ -442,7 +442,7 @@ function criarTabelaNom() {
   // que depois dá pra usar aqui abaixo
   array_valores.forEach((e) => {
     let linha = document.createElement("tr");
-    let campoDados = document.createElement("tr");
+    let campoDados = document.createElement("td");
     let campo_fr_porcento = document.createElement("td");
     let campo_fa = document.createElement("td");
     let campo_fa_porcento = document.createElement("td");
@@ -589,7 +589,8 @@ function tratamentoDeDadosContinua() {
   let dadosVar = document.getElementById("dados_variavel").value;
   let array_dados_variavel = dadosVar.split(";").map(Number);
   array_dados_variavel = quickSort(array_dados_variavel);
-  let at = array_dados_variavel.slice(-1) - array_dados_variavel[0];
+  // at => amplitude dos dados (entre o menor e maior valor informado)
+  let at = Math.ceil(array_dados_variavel.slice(-1) - array_dados_variavel[0]);
   //quantidade de classes
   let classe = [];
   let qtde_classes = Math.floor(Math.sqrt(array_dados_variavel.length));
@@ -611,9 +612,8 @@ function tratamentoDeDadosContinua() {
         break;
       }
     }
-    // }
+  // }
   }
-
   let array_final_continua = [];
   // montar tabela com as linhas separando intervalos de classe
   let valor_anterior = (array_dados_variavel[0]  - 1);
@@ -718,7 +718,7 @@ function criarTabelaContinua() {
   //   console.log(soma_total);
   array_valores.forEach((e) => {
     let linha = document.createElement("tr");
-    let campoDados = document.createElement("tr");
+    let campoDados = document.createElement("td");
     let campo_fr_porcento = document.createElement("td");
     let campo_fa = document.createElement("td");
     let campo_fa_porcento = document.createElement("td");
@@ -984,7 +984,7 @@ function criarTabelaOrd() {
   texto_media.innerHTML = "Media: Nao tem <br>";
   // nome tabela
   let nome_tabela = document.getElementById("nome_tabela");
-  nome_tabela.innerHTML = "Qualitativa Ordinal/Nominal";
+  nome_tabela.innerHTML = "Qualitativa Ordinal";
   //mostrar moda na tela
   let texto_moda = document.getElementById("texto_moda");
   texto_moda.innerHTML = `Moda: ${valor_moda} <b>`;
@@ -998,7 +998,7 @@ function criarTabelaOrd() {
   // que depois dá pra usar aqui abaixo
   array_valores.forEach((e) => {
     let linha = document.createElement("tr");
-    let campoDados = document.createElement("tr");
+    let campoDados = document.createElement("td");
     let campo_fr_porcento = document.createElement("td");
     let campo_fa = document.createElement("td");
     let campo_fa_porcento = document.createElement("td");
@@ -1098,6 +1098,16 @@ function limparResultados()
 
   document.getElementById("container_grafico").innerHTML = '&nbsp;';
   document.getElementById("container_grafico").innerHTML = '<canvas id="myChart"></canvas>';
+
+  let tipo_separatriz = document.getElementById("tipo_separatriz");
+  tipo_separatriz.value = ""; 
+
+  let valor_separatriz = document.getElementById("valor_separatriz");
+  valor_separatriz.value = ""; 
+  valor_separatriz.style.display = 'none'; 
+
+  let valor_separatriz_calculado = document.getElementById("valor_separatriz_calculado");
+  valor_separatriz_calculado.innerHTML = ""; 
 }
 
 
@@ -1108,10 +1118,9 @@ function quartilQualitativaNominal() {
     let calculo = Math.ceil(25 * dados.length * posicao / 100);
     let quartil = dados[calculo - 1];
 
-    let valor_calculado = document.getElementById("valor_separatriz_calculado")
-    valor_calculado.value = quartil;
-    valor_calculado.style.display = 'block';
+    return quartil;
 }
+
 function quintilQualitativaNominal() {
   let dados = (document.getElementById("dados_variavel").value.split(";"));
   dados = quickSort(dados);
@@ -1119,10 +1128,7 @@ function quintilQualitativaNominal() {
   let calculo = Math.ceil(20 * dados.length * posicao / 100)
   let quintil = dados[calculo - 1]
 
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = quintil;
-  valor_calculado.style.display = 'block'
-
+  return quintil;
 }
 
 function decilQualitativaNominal() {
@@ -1132,21 +1138,17 @@ function decilQualitativaNominal() {
   let calculo = Math.ceil(10 * dados.length * posicao / 100)
   let decil = dados[calculo - 1]
 
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = decil;
-  valor_calculado.style.display = 'block'
+  return decil;
 }
 
 function percentilNominal () {
-    let dados = (document.getElementById("dados_variavel").value.split(";"));
-    dados = quickSort(dados);
-    let posicao = document.getElementById("valor_separatriz").value;
-    let calculo = Math.ceil(dados.length * posicao / 100)
-    let percentil = dados[calculo - 1]
+  let dados = (document.getElementById("dados_variavel").value.split(";"));
+  dados = quickSort(dados);
+  let posicao = document.getElementById("valor_separatriz").value;
+  let calculo = Math.ceil(dados.length * posicao / 100)
+  let percentil = dados[calculo - 1]
 
-    let valor_calculado = document.getElementById("valor_separatriz_calculado")
-    valor_calculado.value = percentil;
-    valor_calculado.style.display = 'block'
+  return percentil;
 }    
 
 function quartilDiscreta() {
@@ -1156,11 +1158,9 @@ function quartilDiscreta() {
   let calculo = Math.ceil(25 * dados.length * posicao / 100)
   let quartil = dados[calculo - 1]
 
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-   valor_calculado.value = quartil;
-  valor_calculado.style.display = 'block'
-
+  return quartil;
 }
+
 function quintilDiscreta() {
   let dados = (document.getElementById("dados_variavel").value.split(";"));
   dados = quickSort(dados);
@@ -1168,9 +1168,7 @@ function quintilDiscreta() {
   let calculo = Math.ceil(20 * dados.length * posicao / 100)
   let quintil = dados[calculo - 1]
 
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = quintil;
-  valor_calculado.style.display = 'block'
+  return quintil;
 }
 
 function decilDiscreta() {
@@ -1180,9 +1178,7 @@ function decilDiscreta() {
   let calculo = Math.ceil(10 * dados.length * posicao / 100)
   let decil = dados[calculo - 1]
 
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = decil;
-  valor_calculado.style.display = 'block'
+  return decil;
 }
 
 function percentilDiscreta() {
@@ -1192,9 +1188,7 @@ function percentilDiscreta() {
   let calculo = Math.ceil(dados.length * posicao / 100)
   let percentil = dados[calculo - 1]
 
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = percentil;
-  valor_calculado.style.display = 'block'
+  return percentil;
 }
 
 function quartilOrdinal() {
@@ -1212,10 +1206,7 @@ function quartilOrdinal() {
   let calculo = Math.ceil(array_valores_ordenado.length * posicao / 100)
   let quartil = array_valores_ordenado[calculo - 1]
 
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = quartil;
-  valor_calculado.style.display = 'block'
-
+  return quartil;
 }
 
 function quintilOrdinal() {
@@ -1233,10 +1224,7 @@ function quintilOrdinal() {
   let calculo = Math.ceil(array_valores_ordenado.length * posicao / 100)
   let quintil = array_valores_ordenado[calculo - 1]
 
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = quintil;
-  valor_calculado.style.display = 'block'
-
+  return quintil;
 }
 
 function decilOrdinal() {
@@ -1254,10 +1242,7 @@ function decilOrdinal() {
   let calculo = Math.ceil(array_valores_ordenado.length * posicao / 100)
   let decil = array_valores_ordenado[calculo - 1]
 
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = decil;
-  valor_calculado.style.display = 'block'
-
+  return decil;
 }
 
 function percentilOrdinal() {
@@ -1275,10 +1260,7 @@ function percentilOrdinal() {
   let calculo = Math.ceil(array_valores_ordenado.length * posicao / 100)
   let percentil = array_valores_ordenado[calculo - 1]
 
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = percentil;
-  valor_calculado.style.display = 'block'
-
+  return percentil;
 }
 
 function quartilContinua() {
@@ -1304,9 +1286,8 @@ function quartilContinua() {
     fac_anterior = dados[idx_classe - 1].fa;
   }
   let quartil = dados[idx_classe].limite_inferior + (((posicao_absoluta - fac_anterior) / total_dados) * dados[idx_classe].intervalo_classes);
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = quartil;
-  valor_calculado.style.display = 'block'
+
+  return quartil;
 }
 
 function quintilContinua() {
@@ -1332,9 +1313,8 @@ function quintilContinua() {
     fac_anterior = dados[idx_classe - 1].fa;
   }
   let quintil = dados[idx_classe].limite_inferior + (((posicao_absoluta - fac_anterior) / total_dados) * dados[idx_classe].intervalo_classes);
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = quintil;
-  valor_calculado.style.display = 'block'
+
+  return quintil;
 }
 
 function decilContinua() {
@@ -1360,9 +1340,8 @@ function decilContinua() {
     fac_anterior = dados[idx_classe - 1].fa;
   }
   let decil = dados[idx_classe].limite_inferior + (((posicao_absoluta - fac_anterior) / total_dados) * dados[idx_classe].intervalo_classes);
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = decil;
-  valor_calculado.style.display = 'block'
+
+  return decil;
 }
 
 function percentilContinua() {
@@ -1388,9 +1367,8 @@ function percentilContinua() {
     fac_anterior = dados[idx_classe - 1].fa;
   }
   let percentil = dados[idx_classe].limite_inferior + (((posicao_absoluta - fac_anterior) / total_dados) * dados[idx_classe].intervalo_classes);
-  let valor_calculado = document.getElementById("valor_separatriz_calculado")
-  valor_calculado.value = percentil;
-  valor_calculado.style.display = 'block'
+  
+  return percentil;
 }
 
 function medianaContinua() {
@@ -1439,49 +1417,54 @@ function modaContinua() {
 function calcularSeparatriz() {
   let tipo_tabela = document.getElementById("tipo_tabela").value;
   let tipo_separatriz = document.getElementById("tipo_separatriz").value;
+  let valor_calculado = 0.0;
 
   if (tipo_tabela === 'nominal') {
     if (tipo_separatriz === 'quartil') { 
-      quartilQualitativaNominal();
+      valor_calculado = quartilQualitativaNominal();
     } else if (tipo_separatriz === 'quintil') { 
-      quintilQualitativaNominal();
+      valor_calculado = quintilQualitativaNominal();
     } else if (tipo_separatriz === 'decil') { 
-      decilQualitativaNominal();
+      valor_calculado = decilQualitativaNominal();
     } else if (tipo_separatriz === 'percentil') { 
-      percentilNominal();
+      valor_calculado = percentilNominal();
     }
   }
   if (tipo_tabela === 'ordinal') {
     if (tipo_separatriz === 'quartil') {
-      quartilOrdinal();
+      valor_calculado = quartilOrdinal();
     } else if (tipo_separatriz === 'quintil') { 
-      quintilOrdinal();
+      valor_calculado = quintilOrdinal();
     } else if (tipo_separatriz === 'decil') { 
-      decilOrdinal();
+      valor_calculado = decilOrdinal();
     } else if (tipo_separatriz === 'percentil') { 
-      percentilOrdinal();
+      valor_calculado = percentilOrdinal();
     }
   }
   if (tipo_tabela === 'discreta') {
     if (tipo_separatriz === 'quartil') {
-      quartilDiscreta();
+      valor_calculado = quartilDiscreta();
     } else if (tipo_separatriz === 'quintil') { 
-      quintilDiscreta();
+      valor_calculado = quintilDiscreta();
     } else if (tipo_separatriz === 'decil') { 
-      decilDiscreta();
+      valor_calculado = decilDiscreta();
     } else if (tipo_separatriz === 'percentil') { 
-      percentilDiscreta();
+      valor_calculado = percentilDiscreta();
     }
   }
   if (tipo_tabela === 'continua') {
     if (tipo_separatriz === 'quartil') {
-      quartilContinua();
+      valor_calculado = quartilContinua();
     } else if (tipo_separatriz === 'quintil') { 
-      quintilContinua();
+      valor_calculado = quintilContinua();
     } else if (tipo_separatriz === 'decil') { 
-      decilContinua();
+      valor_calculado = decilContinua();
     } else if (tipo_separatriz === 'percentil') { 
-      percentilContinua();
+      valor_calculado = percentilContinua();
     }
   }
+
+  let valor_separatriz = document.getElementById("valor_separatriz_calculado");
+  valor_separatriz.style.display = 'block';
+  valor_separatriz.innerHTML = `<b>Valor separatriz: ${valor_calculado} </b>`;
 }

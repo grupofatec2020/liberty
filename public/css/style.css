@@ -21,7 +21,7 @@ a.nav-link:hover{
 /* Home */
 
 div#startContainer{
-    background-image: url('/public/img/backGrounds/startBackground2.png');
+    background-image: url('../img/backGrounds/startBackground2.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
