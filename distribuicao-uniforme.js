@@ -48,9 +48,9 @@ function variancia(valor_inicial, valor_final) {
 
 function maior(valor_inicial, valor_final){
     let valor_intervalo = document.getElementById("valor_intervalo_uniforme").value;
-    let intervalo = (valor_final - valor_intervalo);
+    let intervalo = (valor_intervalo - valor_inicial);
     let probabilidade = ((1 / (valor_final - valor_inicial)) * intervalo) * 100;
-
+   
     return probabilidade;
 }
 
@@ -65,9 +65,10 @@ function entre(valor_inicial, valor_final){
 
 function menor(valor_inicial, valor_final){
     let valor_intervalo = document.getElementById("valor_intervalo_uniforme").value;
-    let intervalo = (valor_intervalo - valor_inicial);
+    let intervalo = (valor_final - valor_intervalo);
     let probabilidade = ((1 / (valor_final - valor_inicial)) * intervalo) * 100;
-   
+
     return probabilidade;
+    
 
 }
