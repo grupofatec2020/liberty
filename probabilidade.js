@@ -7,16 +7,16 @@ function DistribuicaoBinomial() {
 
     let evento = k.split(";").map(Number);
 
-    // console.log(evento);
+    console.log(evento);
 
     let media = n * p;
     let texto_media = document.getElementById("texto_media-binomial");
-    // console.log(media)
+    console.log(media)
     texto_media.innerHTML = `Media: ${media} <br>`;
 
     let desvio_padrao = Math.sqrt(n * p * q)
-    let texto_desvio_padrao = document.getElementById("texto_desvio_padrao");
-    // console.log(dp)
+    let texto_desvio_padrao = document.getElementById("texto_desvio_binomial");
+    console.log(desvio_padrao)
 
     let coeficiente_variancia = (desvio_padrao / media) * 100;
     texto_coeficiente_variancia.innerHTML = `Coeficiente Variância: ${coeficiente_variancia.toFixed(2)} % <br>`;
@@ -25,13 +25,15 @@ function DistribuicaoBinomial() {
     evento.forEach((e) => {
         let fatorial_numerador = (fatorial(e)) * (fatorial(n - e));
         let analisecombinatoria = (fatorial(n) / fatorial_numerador);
+        console.log(fatorial_numerador)
+        console.log(typeof(analisecombinatoria))
 
         let calculo = (analisecombinatoria * (Math.pow(p, e)) * (Math.pow(q, (n - e)))) * 100;
-        // console.log(`calculo ${calculo}`);
+        console.log(`calculo ${calculo}`);
         probabilidade_total += calculo;
-        // console.log(`calculo_total ${calculototal}`);
+         console.log(`calculo_total ${calculo}`);
     });
-
+    texto_desvio_padrao.innerHTML = `Desvio Padrão: ${desvio_padrao.toFixed(2)} <br>`
     let texto_probabilidade = document.getElementById("texto_probabilidade_binomial");
     texto_probabilidade.innerHTML = `Probabilidade: ${probabilidade_total.toFixed(2)} % <br>`
 }
