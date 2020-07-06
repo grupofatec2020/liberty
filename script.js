@@ -379,7 +379,7 @@ function criarTabelaDiscreta() {
   texto_desvio_padrao.innerHTML = `Desvio Padrão ${desvio_padrao} <b>`;
   //mostrar coeficiente de varancia
   let texto_coeficiente = document.getElementById("texto_coeficiente_variacao");
-  texto_coeficiente.innerHTML = `Coeficiente de Variacao ${coeficiente_variacao.toFixed(2)} <b>`;
+  texto_coeficiente.innerHTML = `Coeficiente de Variacao ${coeficiente_variacao.toFixed(2)} % <b>`;
   // O que tem aqui é q esse loop cria uma linha <tr>, com algumas colunas (células) <td>
   // que depois dá pra usar aqui abaixo
   // let soma_total = array_valores.reduce((soma_total, array_valores) => soma_total + array_valores, 0);
