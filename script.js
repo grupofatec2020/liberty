@@ -9,6 +9,7 @@ function inserirDados() {
   let dados = document.getElementById("dados_variavel");
   let botao = document.getElementById("calcular"); 
   let tipo_tabela = document.getElementById("tipo_tabela").value;
+  let tipo_desvio = document.getElementById("tipo_desvio");
   limparResultados();
   mostrarSelectSeparatrizes(false);
 
@@ -20,22 +21,27 @@ function inserirDados() {
     label_dados.style.display = 'block';
     dados.style.display = 'block';
     botao.style.display = 'block';
+    tipo_desvio.style.display = 'block'
 
     if (tipo_tabela === "nominal"){
       nome_ordem.style.display = 'none';
       ordem.style.display = 'none';
+      tipo_desvio.style.display = 'block'
     } 
     if (tipo_tabela === "ordinal") {
       nome_ordem.style.display = 'block';
       ordem.style.display = 'block';
+      tipo_desvio.style.display = 'block'
     } 
     if (tipo_tabela === "discreta") {
       nome_ordem.style.display = 'none';
       ordem.style.display = 'none';
+      tipo_desvio.style.display = 'block'
     } 
     if (tipo_tabela === "continua") {
       nome_ordem.style.display = 'none';
       ordem.style.display = 'none';
+      tipo_desvio.style.display = 'block'
     }
   } else {
     up_input.style.display = 'none';
@@ -47,6 +53,7 @@ function inserirDados() {
     botao.style.display = 'none';
     nome_ordem.style.display = 'none';
     ordem.style.display = 'none';
+    tipo_desvio.style.display = 'none'
   }
 }
 
